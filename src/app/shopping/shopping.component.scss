@@ -1,0 +1,18 @@
+.shopping-container {
+    display: flex;
+    max-width: 1335px;
+    margin: 0 auto;
+
+    aside {
+        width: 30%;
+        @media (max-width: 815px) {
+            display: none;
+        }
+    }
+
+    .sort-wrap {
+        @media (max-width: 815px) {
+            display: none;
+        }
+    }
+}

@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: none;
+    border-radius: 16px;
+    color: #000000;
+    cursor: pointer;
+    margin: 4px auto;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+@media (max-width: 815px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+}
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";

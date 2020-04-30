@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="card-row">
+        <div class="card-item" *ngFor="let product of productList">
+            <div class="card">
+                <img [src]="product.image" [alt]="product.name" class="card-image">
+                <div class="card-body">
+                    <p>{{product.name}}</p>
+                    <p class="price-container">
+                        <strong class="actual-price">{{product.price?.actual | currency:'INR':true:'1.0-0'}}</strong>
+                        <span class="display-price">{{product.price?.display | currency:'INR':true:'1.0-0'}}</span>
+                        <span class="discount">{{ product.discount / 100 | percent}} off</span>
+                    </p>
+                </div>
+                <button mat-raised-button color="accent">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+.filter-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+
+    .price-text {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    button {
+        background-color: #0062cc;
+        color: #FFFFFF;
+    }
+}

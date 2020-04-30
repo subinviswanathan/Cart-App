@@ -1,0 +1,9 @@
+<div class="shopping-container">
+    <aside class="hide-on-mobile">
+        <app-filter></app-filter>
+    </aside>
+    <section>
+        <app-sort></app-sort>
+        <app-shopping-list *ngIf="productList$ | async as productList" [productList]="productList"></app-shopping-list>
+    </section>
+</div>

@@ -1,0 +1,35 @@
+$primary-blue: #0062cc;
+$primary-white: #ffffff;
+
+header,
+button,
+.mat-icon,
+.mat-form-field-label {
+    background-color: $primary-blue;
+    color: $primary-white;
+}
+.mat-form-field-label {
+    color: $primary-white !important;
+}
+header {
+    display: flex;
+    padding: 0 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+
+    .right-container,
+    .left-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .left-container {
+        margin-left: auto;
+    }
+
+    .search-button {
+        background-color: $primary-blue !important;
+    }
+}
