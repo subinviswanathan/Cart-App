@@ -9,18 +9,18 @@ import { ShoppingDataModel } from '../model/shopping-data-model';
   templateUrl: './shopping.component.html',
   styleUrls: ['./shopping.component.scss']
 })
-export class ShoppingComponent implements OnInit {
+export class ShoppingComponent {
 
   constructor(private _shopService: ShoppingListService) { }
 
   //products = new BehaviorSubject([]);
   //productsObs = this.products.asObservable();
-  productList$ = this._shopService.getAllData().
-    pipe(
-      tap(data => this._shopService.shoppingItems.next(data as ShoppingDataModel[]))
-    )
-  ngOnInit() {
-    console.log(this._shopService.shoppingItems)
+  productList$ = this._shopService.shoppingItem$;
+
+  cartAdded(item: ShoppingDataModel) {
+    console.log(item);
+    this._shopService.updateShoppingList(item);
+    console.log('Subin ',this._shopService.getAddedShoppingList());
   }
 
 }

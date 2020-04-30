@@ -11,7 +11,7 @@
                         <span class="discount">{{ product.discount / 100 | percent}} off</span>
                     </p>
                 </div>
-                <button mat-raised-button color="accent">Add to Cart</button>
+                <button mat-raised-button color="accent" (click)="addToCart(product)">Add to Cart</button>
             </div>
         </div>
     </div>

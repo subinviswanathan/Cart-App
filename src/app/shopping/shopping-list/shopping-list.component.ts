@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { ShoppingDataModel } from 'src/app/model/shopping-data-model';
 
 @Component({
   selector: 'app-shopping-list',
@@ -12,5 +13,10 @@ export class ShoppingListComponent {
   constructor() { }
 
   @Input('productList') productList;
+  @Output('addedToCart') addedToCart = new EventEmitter<ShoppingDataModel>();
+
+  addToCart(product: ShoppingDataModel) {
+    this.addedToCart.emit(product);
+  }
 
 }
