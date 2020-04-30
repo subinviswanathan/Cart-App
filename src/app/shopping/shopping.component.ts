@@ -18,9 +18,7 @@ export class ShoppingComponent {
   productList$ = this._shopService.shoppingItem$;
 
   cartAdded(item: ShoppingDataModel) {
-    console.log(item);
     this._shopService.updateShoppingList(item);
-    console.log('Subin ',this._shopService.getAddedShoppingList());
   }
 
 }

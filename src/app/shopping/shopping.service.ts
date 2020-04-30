@@ -34,10 +34,14 @@ export class ShoppingListService extends DataService {
     if (!this._addedShoppingListData[item.name]) this._addedShoppingListData[item.name] = [item, 1];
     else this._addedShoppingListData[item.name][1] += value;
 
-    this._addedShoppingList.next(item);
+    if (!this._addedShoppingListData[item.name][1]) delete this._addedShoppingListData[item.name];
+
+    this._addedShoppingList.next(this.getAddedShoppingList());
   }
+
+
   getAddedShoppingList() {
-    return this._addedShoppingListData;
+    return { ...this._addedShoppingListData };
   }
 
 }
