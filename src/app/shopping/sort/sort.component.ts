@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sort',
@@ -8,9 +9,12 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class SortComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit() {
   }
 
+  sortBy(value) {
+    this._router.navigate(['/'], { queryParams: { 'sortBy': value }, queryParamsHandling: 'merge' });
+  }
 }

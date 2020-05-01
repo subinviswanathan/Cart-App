@@ -2,8 +2,8 @@
     <p>
         <strong>Filters</strong>
     </p>
-    <mat-slider thumbLabel min="1" max="100000">
+    <mat-slider thumbLabel [value]="priceVal" #matSlider min="1" max="50000">
     </mat-slider>
     <span class="price-text">Price</span>
-    <button mat-raised-button color="primary">Apply</button>
+    <button mat-raised-button (click)="applyFilter(matSlider)" color="primary">Apply</button>
 </div>

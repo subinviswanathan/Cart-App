@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoppingListService } from '../shopping/shopping.service';
 
 @Component({
   selector: 'app-cart-icon',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartIconComponent implements OnInit {
 
-  constructor() { }
+  itemCount: number;
+  constructor(private _shopService: ShoppingListService) { }
 
   ngOnInit() {
+    this.itemCount = 0;
+    this._shopService.addedShoppingItem$
+      .subscribe(data => {
+        if (data) {
+          let allData = this._shopService.getAddedShoppingList();
+          let keys = Object.keys(allData);
+          this.itemCount = keys.reduce((accum, current) => accum + allData[current][1], 0);
+        }
+      });
   }
-
 }

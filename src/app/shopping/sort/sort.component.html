@@ -1,6 +1,12 @@
 <div class="sort-wrap hide-on-mobile">
     <p>Sort By</p>
-    <button mat-raised-button>Price -- High Low</button>
-    <button mat-raised-button>Price -- Low High</button>
-    <button mat-raised-button>Discount</button>
+    <button routerLink="/" (click)="sortBy('highToLow')" mat-raised-button>
+        Price -- HighLow
+    </button>
+    <button routerLink="/" (click)="sortBy('lowToHigh')" mat-raised-button>
+        Price -- LowHigh
+    </button>
+    <button routerLink="/" (click)="sortBy('discount')" mat-raised-button>
+        Discount
+    </button>
 </div>

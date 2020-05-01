@@ -19,6 +19,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
+import { RouterModule } from '@angular/router';
+import { CheckoutTotalComponent } from './cart-checkout/checkout-total/checkout-total.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,23 @@ import { HeaderComponent } from './header/header.component';
     FilterComponent,
     ShoppingListComponent,
     ShoppingComponent,
-    HeaderComponent
+    HeaderComponent,
+    CheckoutTotalComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot([
+      {
+        path: 'shopping-list',
+        component: ShoppingComponent
+      },
+      {
+        path: '',
+        redirectTo: 'shopping-list',
+        pathMatch: 'full'
+      }
+    ]),
     MatInputModule,
     MatFormFieldModule,
     HttpClientModule,
