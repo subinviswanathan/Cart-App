@@ -11,18 +11,13 @@ import { AppErrorHandler } from './common/app-error-handler';
 import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { FilterComponent } from './shopping/filter/filter.component';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatBadgeModule } from '@angular/material/badge';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { CheckoutTotalComponent } from './cart-checkout/checkout-total/checkout-total.component';
 import { CartCheckoutComponent } from './cart-checkout/cart-checkout.component';
 import { CheckoutItemComponent } from './cart-checkout/checkout-item/checkout-item.component';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -41,6 +36,8 @@ import { CheckoutItemComponent } from './cart-checkout/checkout-item/checkout-it
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    MaterialModule,
     RouterModule.forRoot([
       {
         path: 'shopping-list',
@@ -56,13 +53,6 @@ import { CheckoutItemComponent } from './cart-checkout/checkout-item/checkout-it
         pathMatch: 'full'
       }
     ]),
-    MatInputModule,
-    MatFormFieldModule,
-    HttpClientModule,
-    MatSliderModule,
-    MatButtonModule,
-    MatIconModule,
-    MatBadgeModule,
     //FontAwesomeModule
   ],
   providers: [

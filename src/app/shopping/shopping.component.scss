@@ -15,4 +15,18 @@
             display: none;
         }
     }
+
+    @media (max-width: 815px) {
+        section {
+            width: 100%;
+        }
+    }
+
+    .display-on-mobile {
+        display: none;
+        @media (max-width: 815px) {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
 }

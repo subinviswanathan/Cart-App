@@ -27,6 +27,11 @@ export class ShoppingComponent implements OnInit {
         this.productList$ = this.filteredItems();
       });
 
+    this._route.paramMap
+      .subscribe(param => {
+        this.productList$ = this.filteredItems()
+      });
+
     this._route.queryParamMap
       .subscribe((param) => {
         this.price = param.get('price');
@@ -71,6 +76,14 @@ export class ShoppingComponent implements OnInit {
 
   cartAdded(item: ShoppingDataModel) {
     this._shopService.updateShoppingList(item);
+  }
+
+  sortClick() {
+
+  }
+
+  filterClick() {
+
   }
 
 }

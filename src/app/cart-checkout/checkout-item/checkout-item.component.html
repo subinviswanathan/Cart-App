@@ -1,5 +1,4 @@
 <div *ngFor="let item of shoppingData | keyvalue" class="shopping-cart">
-    {{item.value[1] }}
     <div class="shopping-wrap">
         <div class="image">
             <img [src]="item.value[0].image" alt="item.value[0].name" />
@@ -20,11 +19,13 @@
 
             <div class="quantity">
                 <div>
-                    <button (click)="onItemChange(item.value[0], 1)" mat-raised-button class="plus-btn" type="button" name="button">
+                    <button (click)="onItemChange(item.value[0], 1)" mat-raised-button class="plus-btn" type="button"
+                        name="button">
                         <mat-icon>add_circle_outline</mat-icon>
                     </button>
                     <span class="count">{{ item.value[1] }}</span>
-                    <button (click)="onItemChange(item.value[0], -1)" mat-raised-button class="minus-btn" type="button" name="button">
+                    <button (click)="onItemChange(item.value[0], -1)" mat-raised-button class="minus-btn" type="button"
+                        name="button">
                         <mat-icon>remove_circle_outline</mat-icon>
                     </button>
                 </div>

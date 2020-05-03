@@ -3,6 +3,16 @@
         <app-filter></app-filter>
     </aside>
     <section>
+        <div class="display-on-mobile">
+            <button (click)="sortClick()" mat-raised-button>
+                Sort
+                <mat-icon>sort</mat-icon>
+            </button>
+            <button (click)="filterClick()" mat-raised-button>
+                Filter
+                <mat-icon>filter_list</mat-icon>
+            </button>
+        </div>
         <app-sort></app-sort>
         <app-shopping-list *ngIf="productList$.length; else noList" [productList]="productList$"
             (addedToCart)="cartAdded($event)">
