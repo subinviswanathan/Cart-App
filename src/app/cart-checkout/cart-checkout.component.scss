@@ -1,0 +1,8 @@
+.checkout-total-container {
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 815px) {
+        flex-direction: column;
+    }
+}

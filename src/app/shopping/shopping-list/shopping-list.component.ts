@@ -9,17 +9,12 @@ import { ShoppingListService } from '../shopping.service';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShoppingListComponent implements OnInit {
+export class ShoppingListComponent {
 
   constructor(private _shopService: ShoppingListService) { }
 
   @Input('productList') productList;
   @Output('addedToCart') addedToCart = new EventEmitter<ShoppingDataModel>();
-
-  ngOnInit() {
-    this._shopService.addedShoppingItem$
-      .subscribe(data => console.log(data));
-  }
 
   addToCart(product: ShoppingDataModel) {
     this.addedToCart.emit(product);

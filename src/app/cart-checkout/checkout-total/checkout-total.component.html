@@ -1,1 +1,11 @@
-<p>checkout-total works!</p>
+<div class="checkout-container">
+    <div class="container-wrap">
+        <h4>PRICE DETAILS</h4>
+        <p><a>Price</a> <span class="price">{{displayPrice | currency:'INR':true:'1.0-0'}}</span></p>
+        <p><a>Discount</a> <span class="price">{{actualPrice | currency:'INR':true:'1.0-0'}}</span></p>
+    </div>
+    <hr>
+    <div class="container-total">
+        <p>Total <span class="price" style="color:black"><b>{{totalPrice | currency:'INR':true:'1.0-0'}}</b></span></p>
+    </div>
+</div>

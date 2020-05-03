@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-filter',
@@ -10,14 +10,15 @@ import { Router } from '@angular/router';
 export class FilterComponent implements OnInit {
   priceVal: number;
 
-  constructor(private _router: Router) {
-    this.priceVal = 0;
+  constructor(private _router: Router, private _route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.priceVal = this._route.snapshot.queryParams['price'] || 0;
   }
 
   applyFilter(matSlider) {
+    this.priceVal = matSlider.value;
     this._router.navigate(['/'], { queryParams: { 'price': matSlider.value }, queryParamsHandling: 'merge' });
   }
 }

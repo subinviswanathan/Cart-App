@@ -1,1 +1,6 @@
-<p>search works!</p>
+<mat-form-field>
+    <input color="accent" #searchInput matInput type="search" placeholder="Search" class="search-input">
+</mat-form-field>
+<button (click)="search(searchInput)" class="search-button" mat-button>
+    <mat-icon matSuffix>search</mat-icon>
+</button>

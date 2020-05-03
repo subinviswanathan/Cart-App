@@ -36,7 +36,7 @@ export class ShoppingListService extends DataService {
 
     if (!this._addedShoppingListData[item.name][1]) delete this._addedShoppingListData[item.name];
 
-    this._addedShoppingList.next(this.getAddedShoppingList());
+    this._addedShoppingList.next(this._addedShoppingListData);
   }
 
 

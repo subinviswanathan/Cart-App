@@ -1,1 +1,35 @@
-<p>checkout-item works!</p>
+<div *ngFor="let item of shoppingData | keyvalue" class="shopping-cart">
+    {{item.value[1] }}
+    <div class="shopping-wrap">
+        <div class="image">
+            <img [src]="item.value[0].image" alt="item.value[0].name" />
+        </div>
+
+        <div class="shopping-detail">
+            <div class="description">
+                <p>{{item.value[0].name}}</p>
+                <p class="price-container">
+                    <!-- <strong class="actual-price">{{product.price?.actual | currency:'INR':true:'1.0-0'}}</strong> -->
+                    <strong class="actual-price">{{item.value[0].price?.actual | currency:'INR':true:'1.0-0'}}</strong>
+                    <!-- <span class="display-price">{{product.price?.display | currency:'INR':true:'1.0-0'}}</span> -->
+                    <span class="display-price">{{item.value[0].price?.display | currency:'INR':true:'1.0-0'}}</span>
+                    <!-- <span class="discount">{{ product.discount / 100 | percent}} off</span> -->
+                    <span class="discount">{{item.value[0].discount / 100 | percent}} off</span>
+                </p>
+            </div>
+
+            <div class="quantity">
+                <div>
+                    <button (click)="onItemChange(item.value[0], 1)" mat-raised-button class="plus-btn" type="button" name="button">
+                        <mat-icon>add_circle_outline</mat-icon>
+                    </button>
+                    <span class="count">{{ item.value[1] }}</span>
+                    <button (click)="onItemChange(item.value[0], -1)" mat-raised-button class="minus-btn" type="button" name="button">
+                        <mat-icon>remove_circle_outline</mat-icon>
+                    </button>
+                </div>
+                <button (click)="onItemChange(item.value[0], -1)" class="remove-btn" mat-raised-button>Remove</button>
+            </div>
+        </div>
+    </div>
+</div>

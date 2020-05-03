@@ -5,7 +5,7 @@ import { ShoppingListService } from '../shopping/shopping.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  //encapsulation: ViewEncapsulation.None,
   //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {

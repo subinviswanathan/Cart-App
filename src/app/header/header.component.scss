@@ -8,9 +8,10 @@ button,
     background-color: $primary-blue;
     color: $primary-white;
 }
-.mat-form-field-label {
-    color: $primary-white !important;
-}
+
+// .mat-form-field-label {
+//     color: $primary-white !important;
+// }
 header {
     display: flex;
     padding: 0 1rem;
@@ -23,6 +24,12 @@ header {
     .left-container {
         display: flex;
         align-items: center;
+    }
+
+    .right-container {
+        .mat-icon.mat-accent {
+            color: #ffd740;
+        }
     }
 
     .left-container {

@@ -4,7 +4,11 @@
     </aside>
     <section>
         <app-sort></app-sort>
-        <app-shopping-list *ngIf="productList$ | async as productList" [productList]="productList" (addedToCart)="cartAdded($event)">
+        <app-shopping-list *ngIf="productList$.length; else noList" [productList]="productList$"
+            (addedToCart)="cartAdded($event)">
         </app-shopping-list>
+        <ng-template #noList>
+            <h3 style="text-align: center; margin: 2rem;">No Items found.</h3>
+        </ng-template>
     </section>
 </div>

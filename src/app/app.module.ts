@@ -21,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { CheckoutTotalComponent } from './cart-checkout/checkout-total/checkout-total.component';
+import { CartCheckoutComponent } from './cart-checkout/cart-checkout.component';
+import { CheckoutItemComponent } from './cart-checkout/checkout-item/checkout-item.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { CheckoutTotalComponent } from './cart-checkout/checkout-total/checkout-
     ShoppingListComponent,
     ShoppingComponent,
     HeaderComponent,
-    CheckoutTotalComponent
+    CheckoutTotalComponent,
+    CartCheckoutComponent,
+    CheckoutItemComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,10 @@ import { CheckoutTotalComponent } from './cart-checkout/checkout-total/checkout-
       {
         path: 'shopping-list',
         component: ShoppingComponent
+      },
+      {
+        path: 'shopping-cart',
+        component: CartCheckoutComponent
       },
       {
         path: '',

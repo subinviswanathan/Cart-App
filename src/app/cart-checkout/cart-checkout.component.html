@@ -1,0 +1,8 @@
+<div *ngIf="totalPrice; else noItem" class="checkout-total-container">
+    <app-checkout-item [shoppingData]="shoppingData" (onItemChanged)="onItemChanged($event)"></app-checkout-item>
+    <app-checkout-total [totalPrice]="totalPrice" [actualPrice]="actualPrice" [displayPrice]="displayPrice">
+    </app-checkout-total>
+</div>
+<ng-template #noItem>
+    <h4 style="text-align: center; margin: 2rem;">No items in Cart</h4>
+</ng-template>
