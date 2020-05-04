@@ -7,9 +7,8 @@ import { SearchComponent } from './search/search.component';
 import { CartIconComponent } from './cart-icon/cart-icon.component';
 import { SortComponent } from './shopping/sort/sort.component';
 import { AppErrorHandler } from './common/app-error-handler';
-//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
-import { ShoppingComponent } from './shopping/shopping.component';
+import { ShoppingComponent, DialogContentFilter, DialogContentSort } from './shopping/shopping.component';
 import { FilterComponent } from './shopping/filter/filter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
@@ -18,6 +17,7 @@ import { CheckoutTotalComponent } from './cart-checkout/checkout-total/checkout-
 import { CartCheckoutComponent } from './cart-checkout/cart-checkout.component';
 import { CheckoutItemComponent } from './cart-checkout/checkout-item/checkout-item.component';
 import { MaterialModule } from './material.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,11 +31,14 @@ import { MaterialModule } from './material.module';
     HeaderComponent,
     CheckoutTotalComponent,
     CartCheckoutComponent,
-    CheckoutItemComponent
+    CheckoutItemComponent,
+    DialogContentSort,
+    DialogContentFilter
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     HttpClientModule,
     MaterialModule,
     RouterModule.forRoot([
@@ -55,6 +58,7 @@ import { MaterialModule } from './material.module';
     ]),
     //FontAwesomeModule
   ],
+  entryComponents: [DialogContentSort, DialogContentFilter],
   providers: [
     {
       provide: ErrorHandler,

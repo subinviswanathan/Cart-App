@@ -8,3 +8,15 @@
         margin: 4px 5px;
     }
 }
+.show-on-mobile {
+    display: none;
+    @media (max-width: 815px) {
+        display: block;
+    }
+
+    .radio-button {
+        display: flex;
+        flex-direction: column;
+        margin: 15px 0;
+    }
+}

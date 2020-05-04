@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ShoppingListService } from './shopping.service';
 import { BehaviorSubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { ShoppingDataModel } from '../model/shopping-data-model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-shopping',
@@ -12,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShoppingComponent implements OnInit {
 
-  constructor(private _shopService: ShoppingListService, private _route: ActivatedRoute) { }
+  constructor(private _shopService: ShoppingListService, private _route: ActivatedRoute, public dialog: MatDialog) { }
 
   productList$ = [];
   private price: string;
@@ -79,11 +80,60 @@ export class ShoppingComponent implements OnInit {
   }
 
   sortClick() {
-
+    const dialogRef = this.dialog.open(DialogContentSort);
   }
 
   filterClick() {
-
+    const dialogRef = this.dialog.open(DialogContentFilter);
   }
 
+}
+
+@Component({
+  selector: 'dialog-content-filter',
+  template: `<mat-dialog-content class="mat-typography">
+    <app-filter></app-filter>
+    <mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+</mat-dialog-actions>
+  </mat-dialog-content>`,
+})
+export class DialogContentFilter { }
+
+@Component({
+  selector: 'dialog-content-sort',
+  template: `<mat-dialog-content class="mat-typography">
+    <div class="show-on-mobile">
+    <label>Sort By</label>
+    <mat-radio-group aria-labelledby="radio-group-label" [(ngModel)]="selection">
+        <mat-radio-button class="radio-button" name="highToLow" value="highToLow">
+            Price -- HighLow
+        </mat-radio-button>
+        <mat-radio-button class="radio-button" name="lowToHigh" value="lowToHigh">
+            Price -- LowHigh
+        </mat-radio-button>
+        <mat-radio-button class="radio-button" name="discount" value="discount">
+            Discount
+        </mat-radio-button>
+    </mat-radio-group>
+</div>
+    <mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-button (click)="save(sortType)" cdkFocusInitial>OK</button>
+</mat-dialog-actions>
+  </mat-dialog-content>`,
+})
+export class DialogContentSort {
+  constructor(public dialogRef: MatDialogRef<DialogContentSort>, @Inject(Router) public _router: Router) { }
+
+  close() {
+    this.dialogRef.close();
+  }
+  selection;
+
+  save() {
+    this._router.navigate(['/'], { queryParams: { 'sortBy': this.selection }, queryParamsHandling: 'merge' });
+    this.close();
+  }
 }

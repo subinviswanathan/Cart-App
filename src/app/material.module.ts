@@ -6,6 +6,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
     exports: [
@@ -15,7 +16,8 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatButtonModule,
         MatIconModule,
         MatBadgeModule,
-        MatDialogModule
+        MatDialogModule,
+        MatRadioModule
     ]
 })
 
