@@ -120,7 +120,7 @@ export class DialogContentFilter { }
 </div>
     <mat-dialog-actions align="end">
   <button mat-button (click)="close()">Cancel</button>
-  <button mat-button (click)="save(sortType)" cdkFocusInitial>OK</button>
+  <button mat-button (click)="save()" cdkFocusInitial>OK</button>
 </mat-dialog-actions>
   </mat-dialog-content>`,
 })
